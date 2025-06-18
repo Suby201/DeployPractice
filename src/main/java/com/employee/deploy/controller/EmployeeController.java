@@ -3,18 +3,19 @@ package com.employee.deploy.controller;
 import com.employee.deploy.dto.EmployeeDto;
 import com.employee.deploy.service.EmployeeService;
 import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@AllArgsConstructor
+@RequiredArgsConstructor
 @RestController
 @RequestMapping("/api/employees")
 public class EmployeeController {
 
-    private EmployeeService employeeService;
+    private final EmployeeService employeeService;
 
     // Build Add Employee REST API
     @PostMapping
@@ -47,8 +48,8 @@ public class EmployeeController {
     @PutMapping("{id}")
     public ResponseEntity<EmployeeDto> updateEmployee(@PathVariable("id") Long employeeId,
                                                       @RequestBody EmployeeDto updatedEmployee){
-          EmployeeDto employeeDto = employeeService.updateEmployee(employeeId, updatedEmployee);
-          return ResponseEntity.ok(employeeDto);
+        EmployeeDto employeeDto = employeeService.updateEmployee(employeeId, updatedEmployee);
+        return ResponseEntity.ok(employeeDto);
     }
 
     // Build Delete Employee REST API

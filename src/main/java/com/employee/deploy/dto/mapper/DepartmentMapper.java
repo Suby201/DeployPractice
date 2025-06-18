@@ -1,4 +1,4 @@
-package com.employee.deploy.mapper;
+package com.employee.deploy.dto.mapper;
 
 import com.employee.deploy.dto.DepartmentDto;
 import com.employee.deploy.entity.Department;
